@@ -7,13 +7,14 @@ public class GameInitializer : MonoBehaviour
 
     private void Start()
     {
-        Transform player = Instantiate(_playerPrefab).transform;
+        GameObject player = Instantiate(_playerPrefab);
+        Transform playerTransform = player.transform;
 
         foreach (var point in _spawnPoints)
         {
             if (point != null)
             {
-                point.SpawnEnemy(player);
+                point.SpawnEnemy(playerTransform);
             }
         }
     }
